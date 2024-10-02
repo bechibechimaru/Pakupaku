@@ -13,31 +13,104 @@
         <form action="/signup" method = "post">
             <div class = "signupcontent">
                 ニックネームを入力してください：<br>
-                <input type="text" name = "username" required/>
+                <input type="text" id = "username" name = "username" required/>
             </div>
             <div class = "signupcontent">
                 メールアドレスを入力してください:<br>
-                <input type="email" name = "email" required/>
+                <input type="email" id = "email" name = "email" required/>
             </div>
             <div class = "signupcontent">
-                大学名を入力してください:<br>
-                <input type="text" name = "nameofuniversity" required/>大学
+                大学名を入力し、選択してください:<br>
+                <input type="text" id = "university-input" name = "nameofuniversity" placeholder="例：明治大学→明治" onkeyup="filterUniversities()" required/>大学
+                <ul id = "suggestions" style ="display: none;"></ul>
             </div>
             <div class = "signupcontent">
                 キャンパスを入力してください:<br>
-                <input type="text" name = "campusofuniversity" required/>キャンパス
+                <select id="campus-dropdown" name = "campusofuniversity" required>
+                    <option value="">キャンパスを選択してください</option>
+                </select>        
             </div>
             <div class = "signupcontent">
                 パスワードを登録してください:<br>
-                <input type="password" name = "password" required/>
+                <input type="password" id = "password" name = "password" required/>
             </div>
             <div class = "signupcontent">
                 パスワードをもう一度入力してください（確認用）:<br>
-                <input type="password" name = "passwordforcheck" required/>
+                <input type="password" id = "passwordforcheck" name = "passwordforcheck" required/>
             </div>
             <button class = "submitbutton" type = "submit">登録する（確認画面へ）</button>
         </form>
     </div>
+
+    <script>
+        function filterUniversities() {
+            const input = document.getElementById('university-input').value;
+            const suggestions = document.getElementById('suggestions');
+            suggestions.innerHTML = '';  
+
+            if (input.length > 0) {
+                fetch(`/search-universities?q=${input}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data);
+                        if (data.length > 0) {
+                            suggestions.style.display = 'block';
+                            data.forEach(university => {
+                                const li = document.createElement('li');
+                                li.textContent = university;  // 大学名を表示
+                                li.onclick = function() {
+                                    document.getElementById('university-input').value = university;  // 大学名を入力欄に設定
+                                    suggestions.style.display = 'none';
+
+                                    // 大学が選択されたらキャンパスを取得する
+                                    handleUniversitySelection(university); 
+                                };
+                                suggestions.appendChild(li);
+                            });
+                        } else {
+                            suggestions.style.display = 'none';
+                        }
+                    });
+            } else {
+                suggestions.style.display = 'none';
+            }
+        }
+
+        function handleUniversitySelection(university) {
+            console.log("選択された大学名:", university);
+
+            fetch(`/get-university-uid?universityname=${university}`)
+                .then(response => response.json())
+                .then(data => {
+                    const universityUID = data.university_uid;
+
+                    // 取得したuniversity_uidを使ってキャンパスを取得
+                    fetch(`/get-campuses?university_uid=${universityUID}`)
+                        .then(response => response.json())
+                        .then(campuses => {
+                            const campusSelect = document.getElementById('campus-dropdown');
+                            campusSelect.innerHTML = '';  // 既存の選択肢をクリア
+
+                            campuses.forEach(campus => {
+                                const option = document.createElement('option');
+                                option.value = campus;
+                                option.textContent = campus;
+                                campusSelect.appendChild(option);
+                            });
+                        })
+                        .catch(error => {
+                            console.error('キャンパスの取得に失敗しました:', error);
+                        });
+                })
+                .catch(error => {
+                    console.error('大学UIDの取得に失敗しました:', error);
+                });
+        }
+
+        
+
+
+    </script>
 </body>
 </html>
 

@@ -2,18 +2,18 @@ package main
 
 import (
 	"database/sql"
+	"encoding/json"
 	"fmt"
-	"log"
-	"os"
 	"html/template"
+	"log"
 	"net/http"
+	"os"
 
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/gorilla/sessions"
-	"golang.org/x/crypto/bcrypt"
 	"github.com/joho/godotenv"
+	"golang.org/x/crypto/bcrypt"
 )
-
 
 // セッション管理のためのCookieStoreを作成
 var store = sessions.NewCookieStore([]byte("something-very-secret"))
@@ -55,6 +55,84 @@ func signupHandler(w http.ResponseWriter, r *http.Request) {
 		http.ServeFile(w, r, "./screen/signup.html")
 	}
 }
+
+func searchUniversitiesHandler(w http.ResponseWriter, r *http.Request){
+	query := r.URL.Query().Get("q")
+	var universities []string
+
+	rows, err := db.Query("SELECT universityname FROM University WHERE universityname LIKE ?", query+"%")
+	if err != nil {
+		http.Error(w, "データベースクエリに失敗しました", http.StatusInternalServerError)
+		return
+	}
+
+	defer rows.Close()
+
+	for rows.Next(){
+		var universityname string
+		if err := rows.Scan(&universityname); err != nil {
+			http.Error(w, "データの読み込みに失敗しました", http.StatusInternalServerError)
+			return
+		}
+		universities = append(universities, universityname)
+	}
+
+	if err := rows.Err(); err != nil {
+		http.Error(w, "データベースエラー", http.StatusInternalServerError)
+		return
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(universities)
+}
+
+func getUniversityUIDHandler(w http.ResponseWriter, r *http.Request) {
+    universityName := r.URL.Query().Get("universityname")
+    var universityUID string
+
+    err := db.QueryRow("SELECT university_uid FROM University WHERE universityname = ?", universityName).Scan(&universityUID)
+    if err != nil {
+        http.Error(w, "大学UIDの取得に失敗しました", http.StatusInternalServerError)
+        return
+    }
+
+    w.Header().Set("Content-Type", "application/json")
+    json.NewEncoder(w).Encode(map[string]string{"university_uid": universityUID})
+}
+
+
+func getCampusesByUniversityUIDHandler(w http.ResponseWriter, r *http.Request) {
+    universityUID := r.URL.Query().Get("university_uid")
+	fmt.Println("取得した大学UID:", universityUID)
+
+    var campuses []string
+
+    rows, err := db.Query("SELECT campusname FROM Campus WHERE university_uid = ?", universityUID)
+    if err != nil {
+        http.Error(w, "データベースクエリに失敗しました", http.StatusInternalServerError)
+        return
+    }
+    defer rows.Close()
+
+    for rows.Next() {
+        var campusname string
+        if err := rows.Scan(&campusname); err != nil {
+			fmt.Println("キャンパス名の読み込みに失敗しました")
+            http.Error(w, "データの読み込みに失敗しました", http.StatusInternalServerError)
+            return
+        }
+        campuses = append(campuses, campusname)
+    }
+
+    if err := rows.Err(); err != nil {
+        http.Error(w, "データベースエラー", http.StatusInternalServerError)
+        return
+    }
+
+    w.Header().Set("Content-Type", "application/json")
+    json.NewEncoder(w).Encode(campuses)
+}
+
 
 func confirmHandler(w http.ResponseWriter, r *http.Request) {
 	tmpl, err := template.ParseFiles("./screen/confirm.html")
@@ -616,6 +694,9 @@ func main() {
 
     http.Handle("/assets/", http.StripPrefix("/assets/", http.FileServer(http.Dir("./assets"))))
     http.HandleFunc("/signup", signupHandler)
+	http.HandleFunc("/search-universities", searchUniversitiesHandler) 
+	http.HandleFunc("/get-university-uid", getUniversityUIDHandler)  
+    http.HandleFunc("/get-campuses", getCampusesByUniversityUIDHandler)  
     http.HandleFunc("/confirm", confirmHandler)
     http.HandleFunc("/register", registerUserHandler)
     http.HandleFunc("/login", loginhandler)

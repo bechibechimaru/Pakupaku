@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/post-style.css">
+    <title>Pakupaku</title>
+</head>
+<body>
+    <header>
+        <h1>Pakupaku</h1>
+        <button class="profile" onclick="location.href='/profile'">{{.Username}}</button>
+    </header>
+    <main>
+        <div class = "container">
+            <div class = "headerincontainer">
+                <div class="university-campus">
+                    <p>{{.UniversityName}}大学・{{.CampusName}}キャンパス</p>
+                </div>
+                <div class = "promotion">
+                    キャンパス周辺の飲食店を共有しよう！
+                </div>
+            </div> 
+            
+            <div class="content">
+                {{range .Posts}}
+                <div class = "post">
+                    <div class = "created_by">
+                        <p>{{.User}}: {{.Message}}</p>
+                    </div>
+                    <div>
+                        <small class = "created_at">{{.CreatedAt}}</small>
+                    </div>
+                </div>
+                {{else}}
+                <p>投稿がありません。最初の投稿者になりましょう！</p>
+                {{end}}
+            </div>
+            
+            <form class = "boxforpost" action="/post" method = "POST">
+                <textarea class = "textbox" id="message" name="message" required></textarea>
+                <button class = "postbutton">投稿</button>
+            </form>                                            
+        </div>            
+    </main>
+    <footer>
+        <button class="tab-btn">掲示板</button>
+        <button class="tab-btn" onclick="location.href='/recommendlist'">おすすめリスト</button>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/login.css">
+    <title>Pakupaku</title>
+</head>
+<body>
+    <div class = "container">
+        <h1>Pakupaku  <br> ログイン</h1>
+        <form action="/login" method = "post">
+            <div class = "logincontent">
+                メールアドレスを入力してください<br>
+                <input type="email" name = "email">
+            </div>
+            <div class = "logincontent">
+                パスワードを登録してください<br>
+                <input type="password" name = "password">
+            </div>
+            <form class = "login" action="/login" method = "post">
+                <button class = "returnbutton" type = "button" onclick="location.href='/signup'">ユーザー登録</button>
+                <button class = "submitbutton" type = "submit">ログイン</button>
+            </form>
+        </form>
+    </div>
+</body>
+</html>

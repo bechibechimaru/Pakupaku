@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/makelist.css">
+    <title>Pakupaku</title>
+</head>
+<body>
+    <header>
+        <h1>Pakupaku</h1>
+        <button class="profile" onclick="location.href='/profile'">{{.Username}}</button>
+    </header>
+
+    <h2>おすすめしたい・行きたいお店を登録しよう！</h2>
+
+    <form class = "regires" action="/saverestaurant" method="POST">
+        <div class="nameofrestaurant">
+            レストラン名 : <input type="text" name="restaurant_name" required>
+        </div>
+
+        <div>住所 : <input type="text" name="address" required></div> 
+        
+        <div class = "route">以下の項目を評価しよう</div>
+    
+        <label for="category-select">カテゴリー</label>
+        <select name="category" id="category-select" required>
+            <option value="">飲食店のカテゴリー</option>
+            <option value="ramen">ラーメン</option>
+            <option value="curry">カレー</option>
+            <option value="sushi">寿司</option>
+            <option value="cafe">カフェ</option>
+            <option value="fastfood">ファストフード</option>
+            <option value="yakiniku">焼肉</option>
+            <option value="italian">イタリアン</option>
+            <option value="chinese">中華料理</option>
+            <option value="korean">韓国料理</option>
+            <option value="vietnam">ベトナム料理</option>
+            <option value="others">その他</option>
+        </select><br>
+    
+        <label for="distance-select">キャンパスから飲食店への距離</label>
+        <select name="distance" id="distance-select" required>
+            <option value="">距離</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select><br>
+    
+        <label for="crowded-select">飲食店の混雑度合い</label>
+        <select name="crowded_level" id="crowded-select" required>
+            <option value="">混雑度</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select><br>
+    
+        <label for="speed-select">料理の提供スピードを評価しよう</label>
+        <select name="speed" id="speed-select" required>
+            <option value="">提供スピード</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select><br>
+    
+        <label for="food_quantity-select">料理の美味しさを評価しよう</label>
+        <select name="food_quantity" id="food_quantity-select" required>
+            <option value="">美味しさ</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select><br>
+    
+        <label for="price-select">金額を評価しよう</label>
+        <select name="price" id="price-select" required>
+            <option value="">値段</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select><br>
+    
+        <label for="is_for_group">グループで行けるか教えてあげよう</label>
+        <select name="is_for_group" id="is_for_group-select" required>
+            <option value="1">行ける！</option>
+            <option value="0">行けない</option>
+        </select><br>
+    
+        <div>飲食店の詳細を入力<br></div>   
+        
+        <textarea name="detail" required></textarea><br>
+
+        <div class = "regibuttonbox">
+            <button class="regibutton" type="submit" >登録</button>
+        </div>
+    </form>
+
+    
+   
+
+    <div class = "creteria">
+        評価基準
+        1: bad 2: normal 3: good
+    </div>
+    
+    
+
+    <footer>
+        <button class="tab-btn" onclick="location.href='/postscreen'">掲示板</button>
+        <button class="tab-btn" onclick="location.href='/recommendlist'">おすすめリスト</button>
+    </footer>
+    
+</body>
+</html>

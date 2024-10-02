@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/recommend.css">
+    <title>Pakupaku</title>
+</head>
+<body>
+    <header>
+        <h1>Pakupaku</h1>
+        <button class="profile" onclick="location.href='/profile'">{{.Username}}</button>
+    </header>
+    <main>
+        <div class="container">
+            <div class="headerincontainer">
+                <div class="university-campus">
+                    <p>{{.UniversityName}}大学・{{.CampusName}}キャンパス</p>
+                </div>
+                <div class="promotion">
+                    おすすめの飲食点を記録しよう！
+                </div>
+            </div>
+
+            <div class="recommendlist">
+                {{range .Restaurants}}
+                <div class="restaurant">
+                    <div class = "recommendcontent">
+                        <p>カテゴリー: {{.Category}}</p>
+                        <p>レストラン名: {{.Name}}</p>
+                        <p>住所{{.Address}}</p>
+                        <ul>
+                            <li>距離: {{.Distance}}</li>
+                            <li>混雑度: {{.CrowdedLevel}}</li>
+                            <li>提供スピード: {{.Speed}}</li>
+                            <li>料理の量: {{.FoodQuantity}}</li>
+                            <li>価格: {{.Price}}</li>
+                            <li>グループ向け: {{if .IsForGroup}}行ける{{else}}行けない{{end}}</li>
+                        </ul>
+                        <p>詳細: {{.Detail}}</p> 
+                    </div>
+                </div>
+                {{else}}
+                <p>おすすめの飲食点を記録しよう！</p>
+                {{end}}
+            </div>
+            <div class = "makelistbtn">
+                <button class="tomakelist" onclick="location.href='/makelist'">おすすめのお店を作成</button>
+            </div>
+            
+        </div>
+    </main>
+    <footer>
+        <button class="tab-btn" onclick="location.href='/postscreen'">掲示板</button>
+        <button class="tab-btn">おすすめリスト</button>
+    </footer>
+</body>
+</html>

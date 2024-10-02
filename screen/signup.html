@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/signup.css">
+    <title>Pakupaku</title>
+</head>
+<body>
+    <div class = "container">
+        <h1>Pakupaku <br> 会員登録画面</h1>
+        <form action="/signup" method = "post">
+            <div class = "signupcontent">
+                ニックネームを入力してください：<br>
+                <input type="text" name = "username" required/>
+            </div>
+            <div class = "signupcontent">
+                メールアドレスを入力してください:<br>
+                <input type="email" name = "email" required/>
+            </div>
+            <div class = "signupcontent">
+                大学名を入力してください:<br>
+                <input type="text" name = "nameofuniversity" required/>大学
+            </div>
+            <div class = "signupcontent">
+                キャンパスを入力してください:<br>
+                <input type="text" name = "campusofuniversity" required/>キャンパス
+            </div>
+            <div class = "signupcontent">
+                パスワードを登録してください:<br>
+                <input type="password" name = "password" required/>
+            </div>
+            <div class = "signupcontent">
+                パスワードをもう一度入力してください（確認用）:<br>
+                <input type="password" name = "passwordforcheck" required/>
+            </div>
+            <button class = "submitbutton" type = "submit">登録する（確認画面へ）</button>
+        </form>
+    </div>
+</body>
+</html>
+

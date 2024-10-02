@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/profile.css">
+    <title>Pakupaku</title>
+</head>
+<body>
+    <header>
+
+        <h1>プロフィール情報</h1>
+        <button class = "topostscreen" onclick="location.href='/postscreen'">掲示板画面へ</button>
+    
+    </header>
+    
+    <div class = "profilecontainer">
+        <div>
+            ニックネーム：<br>
+            {{.Username}}
+        </div>
+        
+        <div>
+            大学：<br>
+            {{.UniversityName}}大学
+        </div>
+
+        <div>
+            キャンパス：<br>
+            {{.CampusName}}キャンパス
+        </div>
+    </div>
+
+    <div class = "logoutbtn">
+        <button class = "logout" onclick="location.href='/login'">ログアウト</button>
+    </div>
+
+</body>
+</html>

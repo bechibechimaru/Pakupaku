@@ -73,7 +73,7 @@ var db *sql.DB
 
 func initDB() {
 	// envファイルを読みこむ　
-	err := godotenv.Load()
+	err := godotenv.Load("./gitignore/.env")
 	if err != nil {
 		log.Fatal("Error loading .env file")
 	}

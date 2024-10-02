@@ -1,0 +1,140 @@
+/* ヘッダーのスタイル */
+
+body{
+    background-color: #A5C398;
+}
+header {
+    color: #735C29;
+    display: flex; /* フレックスボックスを有効に */
+    justify-content: space-between; /* ヘッダー要素を左右に分ける */
+    align-items: center; /* 中央に揃える */
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.profile {
+    background-color: #FFF2E3;
+    padding: 5px 10px;
+    border: 1px solid #000;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.container{
+    margin: 0 100px 0 100px;
+    padding: 10px 0 10px 10px;
+    border-radius: 20px;
+}
+
+/* 大学・キャンパス表示のスタイル */
+.university-campus {
+    color: #735C29;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.promotion{
+    color: #735C29;
+    margin-bottom: 10px;
+    text-align: right;
+}
+
+/* 投稿コンテンツ全体のレイアウト */
+.recommendlist{
+    background-color: #FFF2E3;
+    display: flex; /* フレックスボックスを使用 */
+    flex-direction: column-reverse; /* 新しい投稿を下に表示 */
+    border: 1px solid #576730;
+    border-radius: 20px;
+    height: 500px; /* 固定の高さを指定 */
+    padding: 10px; /* 内側の余白 */
+    overflow-y: auto; /* 縦方向のスクロールを有効にする */
+    width: 100%;
+}
+
+.restaurant{
+    border: solid;
+    border-radius: 20px;
+    margin: 10px;
+    text-align: left;
+}
+
+.recommendcontent{
+    margin-left: 10px;
+}
+
+.makelistbtn{
+    text-align: right;
+}
+
+.tomakelist{
+    background-color: #FFF2E3;
+    margin: 10px;
+    padding: 5px 10px;
+
+    border: 1px solid #000;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+
+/* メインのコンテンツ領域 */
+main {
+    padding: 20px;
+}
+
+/* フッターのスタイル */
+footer {
+    margin: 0 180px 0 180px;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+}
+
+/* フッターのタブボタン */
+.tab-btn {
+    color: #735C29;
+    bottom: 20px;
+    padding: 10px 20px;
+    border: 1px solid #000;
+    border-radius: 20px;
+    background-color: #FFF2EF;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+}
+
+@media (max-width: 450px){
+    .container{
+        margin: 0 10px 0 10px;
+        padding: 10px 0 10px 10px;
+        border-radius: 20px;
+    }
+
+    .content{
+        width: 90%;
+        place-content: center;
+    }
+    .boxforpost{
+        width: 90%;
+        display: flex;
+    }
+
+    .textbox{
+        width: 70%;
+        margin: 10px 0 10px 10px;
+    }
+
+    .postbutton{
+        margin: 30px 0 15px 10px ;
+    }
+
+    footer{
+        margin: 0px;
+    }
+    .tab-btn{
+        width: 100%;
+        background-color: #FFF2EF;
+    }
+}

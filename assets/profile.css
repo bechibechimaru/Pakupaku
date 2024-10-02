@@ -1,0 +1,52 @@
+body{
+    background-color: #A5C398;
+}
+
+header{
+    color: #735C29;
+    display: flex; /* フレックスボックスを有効に */
+    justify-content: space-between; /* ヘッダー要素を左右に分ける */
+    align-items: center; /* 中央に揃える */
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+h1{
+    color: #735C29;
+}
+
+.topostscreen{
+    background-color: #FFF2E3;
+    padding: 5px 10px;
+    border: 1px solid #000;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.profilecontainer{
+    color:#735C29;
+    background-color: #FFF2E3;
+    border: solid ;
+    border-radius: 5px;
+    text-align: center;
+}
+
+div{
+    margin: 10px;
+}
+
+.logoutbtn{
+    text-align: right;
+}
+
+.logout{
+    text-align: center;
+    background-color: #FFF2E3;
+    margin: 10px;
+    padding: 5px 10px;
+    border: 1px solid #000;
+    border-radius: 50px;
+    cursor: pointer;
+    
+}
+

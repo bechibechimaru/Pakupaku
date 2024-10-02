@@ -1,0 +1,81 @@
+body{
+    background-color: #A5C398;
+}
+
+h1{
+    color: #735C29;
+}
+
+h2{
+    color: #735C29;
+}
+
+.container{
+    
+    padding: 10px 0 10px 10px;
+    border-radius: 20px;
+}
+
+.logincontent{
+    color: #735C29
+}
+
+input{
+    background-color: #FFF2E3;
+    border-radius: 20px;
+    margin-left: 5px;
+}
+
+.login{
+    text-align: right;
+}
+
+.confirm{
+    display: flow-root;
+}
+
+.submitbutton{
+    height: 50px;
+    width: 100px;
+    background-color: #FFF2E3;
+    border-radius: 20px;
+}
+
+.returnbutton{
+    height: 50px;
+    width: 100px;
+    background-color: #FFF2E3;
+    border-radius: 20px;
+}
+
+@media (max-width: 450px){
+
+    .button{
+        display: flow-root;
+    }
+    .submitbutton{
+        height: 50px;
+        width: 100px;
+        float: right;
+        margin: 40px;
+        background-color: #FFF2E3;
+        border-radius: 20px;
+    }
+    
+    .returnbutton{
+        height: 50px;
+        width: 100px;
+        float: left;
+        margin: 40px;
+        background-color: #FFF2E3;
+    }
+
+    footer{
+        margin: 0px;
+    }
+
+    .tab-btn{
+        width: 100%;
+        background-color: #FFF2EF;
+    }
+}

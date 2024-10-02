@@ -27,8 +27,14 @@ input{
     padding-left: 5px;
 }
 
-.login{
-    text-align: right;
+.campus-dropdown{
+    background-color: red;
+    border-radius: 20px;
+}
+
+select{
+    border-radius: 20px;
+    background-color: #FFF2E3;
 }
 
 .submitbutton{

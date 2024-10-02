@@ -299,7 +299,7 @@ func postscreenHandler(w http.ResponseWriter, r *http.Request) {
 			  WHERE u.email = ?`
 	err = db.QueryRow(query, email).Scan(&username, &universityUID, &campusUID, &universityName)
 	if err != nil {
-		http.Error(w, "ユーザー情報の取得に失敗しました。", http.StatusInternalServerError)
+		http.Redirect(w, r, "/login", http.StatusSeeOther)
 		return
 	}
 
@@ -565,7 +565,7 @@ func recommendlistHandler(w http.ResponseWriter, r *http.Request) {
         FROM Restaurants 
         WHERE campus_uid = ?`, campusUID)
     if err != nil {
-        http.Error(w, "レストラン情報の取得に失敗しました", http.StatusInternalServerError)
+        http.Error(w, "レストラン情の取得に失敗しました", http.StatusInternalServerError)
         return
     }
     defer rows.Close()

@@ -103,7 +103,6 @@ func getUniversityUIDHandler(w http.ResponseWriter, r *http.Request) {
 
 func getCampusesByUniversityUIDHandler(w http.ResponseWriter, r *http.Request) {
     universityUID := r.URL.Query().Get("university_uid")
-	fmt.Println("取得した大学UID:", universityUID)
 
     var campuses []string
 
@@ -117,7 +116,6 @@ func getCampusesByUniversityUIDHandler(w http.ResponseWriter, r *http.Request) {
     for rows.Next() {
         var campusname string
         if err := rows.Scan(&campusname); err != nil {
-			fmt.Println("キャンパス名の読み込みに失敗しました")
             http.Error(w, "データの読み込みに失敗しました", http.StatusInternalServerError)
             return
         }

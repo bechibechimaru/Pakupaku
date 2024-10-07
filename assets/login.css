@@ -7,14 +7,15 @@ h1{
 }
 
 .container{
-    
+    text-align: center;
     margin: 0 100px 0 100px;
     padding: 10px 0 10px 10px;
     border-radius: 20px;
 }
 
 .logincontent{
-    color: #735C29
+    color: #735C29;
+    margin:20px
 }
 
 input{

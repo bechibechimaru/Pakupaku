@@ -87,7 +87,6 @@ header {
     border-radius: 10px;
     height: 50%;
 }
-
 /* フッターのスタイル */
 footer {
     margin: 0 180px 0 180px;
@@ -103,7 +102,7 @@ footer {
     bottom: 20px;
     padding: 10px 20px;
     border: 1px solid #000;
-    border-radius: 20px
+    border-radius: 20px;
     background-color: #FFF2EF;
     cursor: pointer;
     width: 100%;

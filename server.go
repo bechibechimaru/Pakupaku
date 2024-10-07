@@ -282,7 +282,7 @@ func postscreenHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if auth, ok := session.Values["authenticated"].(bool); !ok || !auth {
-		http.Error(w, "アクセス権がありません", http.StatusForbidden)
+		http.Redirect(w, r, "/login", http.StatusSeeOther)
 		return
 	}
 

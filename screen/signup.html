@@ -10,7 +10,7 @@
 <body>
     <div class = "container">
         <h1>Pakupaku <br> 会員登録画面</h1>
-        <form action="/signup" method = "post">
+        <form action="/signup" method = "post" onsubmit = "return CheckPassword()">
             <div class = "signupcontent">
                 ニックネームを入力してください：<br>
                 <input type="text" id = "username" name = "username" required/>
@@ -105,6 +105,18 @@
                 .catch(error => {
                     console.error('大学UIDの取得に失敗しました:', error);
                 });
+        }
+
+        function CheckPassword(){
+            var correctpassword = document.getElementById("password").value
+            var passwordforcheck = document.getElementById("passwordforcheck").value
+
+            if (correctpassword != passwordforcheck){
+                alert("パスワードが一致しません");
+                return false;
+            }else{
+                return true;
+            }
         }
     </script>
 </body>

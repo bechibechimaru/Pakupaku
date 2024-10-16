@@ -500,19 +500,19 @@ func saverestaurantHandler(w http.ResponseWriter, r *http.Request) {
         // フォームからデータを取得
         restaurantName := r.FormValue("restaurant_name")
         category := r.FormValue("category")
+		address := r.FormValue("address")
         distance := r.FormValue("distance")
         crowdedLevel := r.FormValue("crowded_level")
         speed := r.FormValue("speed")
-        foodQuantity := r.FormValue("food_quantity")
+        foodQuality := r.FormValue("food_quality")
         price := r.FormValue("price")
-        isForGroup := r.FormValue("is_for_group")
+        isForGroup := r.FormValue("group")
         detail := r.FormValue("detail")
-        address := r.FormValue("address")
-
+        
         // データベースに挿入
-        query := `INSERT INTO Restaurants (restaurant_uid, restaurant_name, category, campus_uid, distance, crowded_level, speed, food_quantity, price, is_for_group, detail, address, recommended_by) 
+        query := `INSERT INTO Restaurants (restaurant_uid, restaurant_name, category, campus_uid, distance, crowded_level, speed, food_quality, price, is_for_group, detail, address, recommended_by) 
                   VALUES (UUID(), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
-        _, err = db.Exec(query, restaurantName, category, campusUID, distance, crowdedLevel, speed, foodQuantity, price, isForGroup, detail, address, userUID)
+        _, err = db.Exec(query, restaurantName, category, campusUID, distance, crowdedLevel, speed, foodQuality, price, isForGroup, detail, address, userUID)
         if err != nil {
             http.Error(w, "レストラン情報の保存に失敗しました", http.StatusInternalServerError)
             return
@@ -561,8 +561,8 @@ func recommendlistHandler(w http.ResponseWriter, r *http.Request) {
     }
 
     rows, err := db.Query(`
-        SELECT restaurant_name, category, address, distance, crowded_level, speed, food_quantity, price, is_for_group, detail 
-        FROM Restaurants 
+        SELECT restaurant_name, category, address, distance, crowded_level, speed, food_quality, price, is_for_group, detail 
+        FROM Restaurants
         WHERE campus_uid = ?`, campusUID)
     if err != nil {
         http.Error(w, "レストラン情の取得に失敗しました", http.StatusInternalServerError)
@@ -577,7 +577,7 @@ func recommendlistHandler(w http.ResponseWriter, r *http.Request) {
         Distance     int
         CrowdedLevel int
         Speed        int
-        FoodQuantity int
+        FoodQuality int
         Price        int
         IsForGroup   bool
         Detail       string // 追加: 詳細フィールドを取得
@@ -591,12 +591,12 @@ func recommendlistHandler(w http.ResponseWriter, r *http.Request) {
             Distance     int
             CrowdedLevel int
             Speed        int
-            FoodQuantity int
+            FoodQuality int
             Price        int
             IsForGroup   bool
             Detail       string
         }
-        err := rows.Scan(&restaurant.Name, &restaurant.Category, &restaurant.Address, &restaurant.Distance, &restaurant.CrowdedLevel, &restaurant.Speed, &restaurant.FoodQuantity, &restaurant.Price, &restaurant.IsForGroup, &restaurant.Detail)
+        err := rows.Scan(&restaurant.Name, &restaurant.Category, &restaurant.Address, &restaurant.Distance, &restaurant.CrowdedLevel, &restaurant.Speed, &restaurant.FoodQuality, &restaurant.Price, &restaurant.IsForGroup, &restaurant.Detail)
         if err != nil {
             http.Error(w, "データの読み込みに失敗しました", http.StatusInternalServerError)
             return
@@ -623,7 +623,7 @@ func recommendlistHandler(w http.ResponseWriter, r *http.Request) {
             Distance     int
             CrowdedLevel int
             Speed        int
-            FoodQuantity int
+            FoodQuality int
             Price        int
             IsForGroup   bool
             Detail       string // 詳細情報を追加

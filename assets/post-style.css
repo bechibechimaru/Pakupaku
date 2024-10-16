@@ -56,6 +56,10 @@ header {
     width: 100%;
 }
 
+.content::-webkit-scrollbar{
+    display: none;
+}
+
 .post{
     color: #735C29;
     border-radius: 10px;

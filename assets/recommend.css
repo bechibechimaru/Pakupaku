@@ -52,11 +52,14 @@ header {
     width: 100%;
 }
 
+.recommendlist::-webkit-scrollbar{
+    display: none;
+}
+
 .restaurant{
-    border: solid;
-    border-radius: 20px;
     margin: 10px;
     text-align: left;
+    border-bottom: 1px solid ;
 }
 
 .recommendcontent{

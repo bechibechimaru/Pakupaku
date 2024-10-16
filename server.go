@@ -250,12 +250,12 @@ func loginhandler(w http.ResponseWriter, r *http.Request) {
 		query := "SELECT encrypted_password FROM User WHERE email = ?"
 		err := db.QueryRow(query, email).Scan(&hashedPassword)
 		if err != nil {
-			http.Error(w, "メールアドレスまたはパスワードが間違っています。", http.StatusUnauthorized)
+			http.Redirect(w, r, "/login", http.StatusSeeOther)
 			return
 		}
 
 		if !checkPasswordHash(password, hashedPassword) {
-			http.Error(w, "メールアドレスまたはパスワードが間違っています", http.StatusUnauthorized)
+			http.Redirect(w, r, "/login", http.StatusSeeOther)
 			return
 		}
 
@@ -642,8 +642,6 @@ func recommendlistHandler(w http.ResponseWriter, r *http.Request) {
         http.Error(w, "テンプレートの実行に失敗しました", http.StatusInternalServerError)
     }
 }
-
-
 
 func makelistHandler(w http.ResponseWriter, r *http.Request) {
     session, err := store.Get(r, "session-name")

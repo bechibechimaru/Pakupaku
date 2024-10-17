@@ -556,7 +556,7 @@ func recommendlistHandler(w http.ResponseWriter, r *http.Request) {
     var campusUID string
     err = db.QueryRow("SELECT campus_uid FROM User WHERE email = ?", email).Scan(&campusUID)
     if err != nil {
-        http.Error(w, "キャンパスUIDの取得に失敗しました", http.StatusInternalServerError)
+        http.Error(w, "キャンパスUIDの取得に失敗しました,ブラウザバックして下さい。", http.StatusInternalServerError)
         return
     }
 

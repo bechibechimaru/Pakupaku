@@ -1,75 +1,73 @@
 body{
-    background-color: #A5C398;
+    background-color: #d6f2ca;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
 }
 
 h1{
-    color: #735C29;
+    color: #b5a583;
 }
 
 .container{
     text-align: center;
-    margin: 0 100px 0 100px;
-    padding: 10px 0 10px 10px;
-    border-radius: 20px;
+    margin: 0 100px;
+    padding: 10px 0;
 }
 
 .logincontent{
-    color: #735C29;
-    margin:20px
+    color: #b5a583;
+    margin: 20px;
+    position: relative;
 }
 
 input{
-    background-color: #FFF2E3;
-    border-radius: 20px;
-    padding-left: 5px;
+    border: none;
+    border-bottom: 1px solid;
+    outline: none;
+}
+
+.showpass{
+    color: #b5a583;
+    position: absolute;
+    cursor: pointer;
+    margin-left: 10px;
 }
 
 .login{
-    text-align: center;
+    display: flex;
+    flex-direction: column; /* ボタンを縦方向に配置 */
+    align-items: center; /* ボタンを中央揃え */
+    gap: 20px; /* ボタン間のスペース */
+    margin-top: 20px;
 }
 
-.submitbutton{
-    margin: 10px;
-    background-color: #FFF2E3;
-    border-radius: 20px;
-}
-
-.returnbutton{
-    margin: 10px;
-    background-color: #FFF2E3;
-    border-radius: 20px;
+.submitbutton, .returnbutton{
+    background-color: #e5fae3;
+    border-radius: 10px;
+    width: 80%; /* ボタンの幅を80%に */
+    max-width: 300px; /* ボタンの最大幅を制限 */
+    margin-top: 20px;
 }
 
 @media (max-width: 450px){
+
     .container{
-        margin: 0 10px 0 10px;
-        padding: 10px 0 10px 10px;
+        margin: 0 10px;
+        padding: 10px;
+        width: 70vw;
+        height: 50vh;
+        border: solid;
         border-radius: 20px;
+        background-color: #ffffff;
     }
 
-    .submitbutton{
-        height: 40px;
-        width: 100px;
-        float: right;
-        margin: 40px;
-        background-color: #FFF2E3;
-        border-radius: 20px;
+    .submitbutton, .returnbutton {    
+        outline: none;    
+        max-width: 100%;
+        min-height: 40px;
+        border-radius: 8px;
+        font-size: 1.5rem;
     }
-    
-    .returnbutton{
-        height: 40px;
-        width: 100px;
-        float: left;
-        margin: 40px;
-        background-color: #FFF2E3;
-    }
-
-    footer{
-        margin: 0px;
-    }
-    .tab-btn{
-        width: 100%;
-        background-color: #FFF2EF;
-    }
-    
 }

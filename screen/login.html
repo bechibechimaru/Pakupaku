@@ -12,18 +12,33 @@
         <h1>Pakupaku  <br> ログイン</h1>
         <form action="/login" method = "post">
             <div class = "logincontent">
-                メールアドレスを入力してください<br>
-                <input type="email" name = "email">
+                <input type="email" name = "email" placeholder = "メールアドレス">
             </div>
             <div class = "logincontent">
-                パスワードを登録してください<br>
-                <input type="password" name = "password">
+                <input type="password" id = "password" name = "password" placeholder = "パスワード">
+                <span class = "showpass" id = "togglepassword">look</span>
             </div>
             <div class = "login">
-                <button class = "returnbutton" type = "button" onclick="location.href='/signup'">ユーザー登録</button>
                 <button class = "submitbutton" type = "submit">ログイン</button>
+                <button class = "returnbutton" type = "button" onclick="location.href='/signup'">ユーザー登録</button>
             </div>
         </form>
     </div>
+
+    <script>
+        const togglepassword = document.querySelector("#togglepassword");
+        const passwordField = document.querySelector("#password");
+
+        togglepassword.addEventListener("click", function(){
+            // タイプを切り替える　
+            const type = passwordField.getAttribute("type") === "password" ? "text" : "password";
+            passwordField.setAttribute("type", type);
+
+            // アイコンの切り替え　
+            togglepassword.textContent = type === "password" ? "look": "hide" 
+        });
+    </script>
 </body>
 </html>
+
+

@@ -12,8 +12,14 @@ h1{
 
 .container{
     text-align: center;
-    margin: 0 100px;
-    padding: 10px 0;
+    margin: 0 10px;  /* 小さい画面でもコンテンツが中央に収まるように */
+    padding: 0 20px 50px 20px;
+    width: 100%;  /* 必要に応じて幅を調整 */
+    max-width: 400px; /* 最大幅を設定 */
+    box-sizing: border-box;
+    background-color: #ffffff;
+    border: solid;
+    border-radius: 20px;
 }
 
 .logincontent{
@@ -40,27 +46,29 @@ input{
     flex-direction: column; /* ボタンを縦方向に配置 */
     align-items: center; /* ボタンを中央揃え */
     gap: 20px; /* ボタン間のスペース */
-    margin-top: 20px;
+    
 }
 
 .submitbutton, .returnbutton{
+    width: 100%;  /* ボタンの幅をコンテナに合わせて100%にする */
+    max-width: 300px;  /* 必要に応じて最大幅を設定 */
+    min-height: 40px;
+    border-radius: 8px;
+    font-size: 1.5rem;
     background-color: #e5fae3;
-    border-radius: 10px;
-    width: 80%; /* ボタンの幅を80%に */
-    max-width: 300px; /* ボタンの最大幅を制限 */
-    margin-top: 20px;
+    outline: none;
 }
 
 @media (max-width: 450px){
-
     .container{
         margin: 0 10px;
-        padding: 10px;
+        padding: 0 20px 30px 20px;
         width: 70vw;
         height: 50vh;
         border: solid;
         border-radius: 20px;
         background-color: #ffffff;
+        box-sizing: border-box;
     }
 
     .submitbutton, .returnbutton {    
@@ -69,5 +77,30 @@ input{
         min-height: 40px;
         border-radius: 8px;
         font-size: 1.5rem;
+        width: 100%;
+        margin: 10px;
+    }
+}
+
+@media (max-width: 380px){
+    .container{
+        margin: 0 10px;
+        padding: 0 20px 30px 20px;
+        width: 70vw;
+        height: 60vh;
+        border: solid;
+        border-radius: 20px;
+        background-color: #ffffff;
+        box-sizing: border-box;
+    }
+
+    .submitbutton, .returnbutton {    
+        outline: none;    
+        max-width: 100%;
+        min-height: 40px;
+        border-radius: 8px;
+        font-size: 1.5rem;
+        width: 100%;
+        margin: 10px;
     }
 }

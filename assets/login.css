@@ -20,6 +20,7 @@ h1{
     background-color: #ffffff;
     border: solid;
     border-radius: 20px;
+    box-shadow: 1px 1px 8px 8px #8e8e8e;
 }
 
 .logincontent{

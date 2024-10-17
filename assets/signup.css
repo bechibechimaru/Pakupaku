@@ -1,94 +1,115 @@
 body{
-    background-color: #A5C398;
+    background-color: #d6f2ca;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
 }
 
 h1{
-    color: #735C29;
+    color: #b5a583;
 }
 
 h2{
-    color: #735C29;
+    color: #b5a583;
 }
 
 .container{
     text-align: center;
-    margin: 0 100px 0 100px;
-    padding: 10px 0 10px 10px;
+    margin: 0 10px;  /* 小さい画面でもコンテンツが中央に収まるように */
+    padding: 0 20px 50px 20px;
+    width: 100%;  /* 必要に応じて幅を調整 */
+    max-width: 400px; /* 最大幅を設定 */
+    box-sizing: border-box;
+    background-color: #ffffff;
+    border: solid;
     border-radius: 20px;
+    box-shadow: 1px 1px 8px 8px #8e8e8e;
 }
 
 
 .signupcontent{
-    color: #735C29;
-    margin: 10px;
+    margin: 15px;
     text-align: conter;
-
 }
 
 ul {
-    list-style-position: inside;
+    list-style: none;
+    padding-left: 0;
     text-align: center;
 }
 
+
 input{
-    background-color: #FFF2E3;
-    border-radius: 20px;
-    padding-left: 5px;
+    border: none;
+    border-bottom: 1px solid;
+    outline: none;
 }
 
 .campus-dropdown{
-    background-color: red;
     border-radius: 20px;
+    border:none;
+    border-bottom: 1px solid;
+    outline: none;
 }
 
 select{
     border-radius: 20px;
-    background-color: #FFF2E3;
+    background-color: #e5fae3;
 }
 
 .submitbutton{
-    height: 40px;
-    width: 160px;
-    margin: 10px;
-    background-color: #FFF2E3;
-    border-radius: 20px;
+    width: 100%;  /* ボタンの幅をコンテナに合わせて100%にする */
+    max-width: 300px;  /* 必要に応じて最大幅を設定 */
+    min-height: 40px;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #e5fae3;
+    outline: none;
 }
 
 @media (max-width: 450px){
     .container{
-        margin: 0 10px 0 10px;
-        padding: 10px 0 10px 10px;
+        margin: 0 10px;
+        padding: 0 20px 30px 20px;
+        width: 70vw;
+        height: 50vh;
+        border: solid;
         border-radius: 20px;
+        background-color: #ffffff;
+        box-sizing: border-box;
     }
 
-    form{
-        text-align: left;
-    }
-
-    .content{
-        width: 90%;
-        place-content: center;
-    }
-    .boxforpost{
-        width: 90%;
-        display: flex;
-    }
-
-    .textbox{
-        width: 70%;
-        margin: 10px 0 10px 10px;
-    }
-
-    .postbutton{
-
-        margin: 30px 0 15px 10px ;
-    }
-
-    footer{
-        margin: 0px;
-    }
-    .tab-btn{
+    .submitbutton{    
+        outline: none;    
+        max-width: 100%;
+        min-height: 40px;
+        border-radius: 8px;
+        font-size: 1.5rem;
         width: 100%;
-        background-color: #FFF2EF;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 380px){
+    .container{
+        margin: 0 10px;
+        padding: 0 20px 30px 20px;
+        width: 80vw;
+        height: 65vh;
+        border: solid;
+        border-radius: 20px;
+        background-color: #ffffff;
+        box-sizing: border-box;
+    }
+
+    .submitbutton{    
+        outline: none;    
+        max-width: 100%;
+        min-height: 40px;
+        border-radius: 8px;
+        font-size: 1.5rem;
+        width: 100%;
+        margin: 10px 0 ;
     }
 }

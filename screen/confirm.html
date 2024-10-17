@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/confirm.css">
+    <link rel="stylesheet" href="../assets/confirm.css">
     <title>Pakupaku</title>
 </head>
 <body>
 
     <div class="container">
-        <h1>Pakupaku <br> 会員登録確認画面</h1> 
+        <h1>Pakupaku</h1> 
+        <h2>会員情報確認画面</h2>
         <h2>入力内容を確認してください</h2>
         <div class="signupcontent">
             <p>ニックネーム: {{.Username}}</p>
@@ -26,9 +27,9 @@
         </div>
 
         <div class = "button">
-            <form action="/register" method="post">
-                <button class = "returnbutton" type = "button" onclick="location.href='/signup'">戻る</button>
+            <form action="/register" method="post">            
                 <button class="submitbutton" type="submit">登録する</button>
+                <button class = "returnbutton" type = "button" onclick="location.href='/signup'">戻る</button>
             </form>
         </div>
     </div>

@@ -47,7 +47,6 @@ input{
     flex-direction: column; /* ボタンを縦方向に配置 */
     align-items: center; /* ボタンを中央揃え */
     gap: 20px; /* ボタン間のスペース */
-    
 }
 
 .submitbutton, .returnbutton{

@@ -11,34 +11,29 @@
     <div class = "container">
         <h1>Pakupaku <br> 会員登録画面</h1>
         <form action="/signup" method = "post" onsubmit = "return CheckPassword()">
-            <div class = "signupcontent">
-                ニックネームを入力してください：<br>
-                <input type="text" id = "username" name = "username" required/>
+            <div class = "signupcontent">            
+                <input type="text" id = "username" name = "username" placeholder = "ニックネームを入力" required/>
             </div>
-            <div class = "signupcontent">
-                メールアドレスを入力してください:<br>
-                <input type="email" id = "email" name = "email" required/>
+            <div class = "signupcontent">    
+                <input type="email" id = "email" name = "email" placeholder="メールアドレスを入力" required/>
             </div>
-            <div class = "signupcontent">
-                大学名を入力し、選択してください:<br>
-                <input type="text" id = "university-input" name = "nameofuniversity" placeholder="例：明治大学→明治" onkeyup="filterUniversities()" required/>大学
+            <div class = "signupcontent">        
+                <input type="text" id = "university-input" name = "nameofuniversity" placeholder="大学名を入力・選択" onkeyup="filterUniversities()" required/>大学
                 <ul id = "suggestions" style ="display: none;"></ul>
             </div>
             <div class = "signupcontent">
-                キャンパスを選択してください:<br>
+
                 <select id="campus-dropdown" name = "campusofuniversity" required>
                     <option value="">キャンパスを選択してください</option>
                 </select>        
             </div>
-            <div class = "signupcontent">
-                パスワードを登録してください:<br>
-                <input type="password" id = "password" name = "password" required/>
+            <div class = "signupcontent">            
+                <input type="password" id = "password" name = "password"  placeholder="パスワード" required/>
             </div>
-            <div class = "signupcontent">
-                パスワードをもう一度入力してください（確認用）:<br>
-                <input type="password" id = "passwordforcheck" name = "passwordforcheck" required/>
+            <div class = "signupcontent">            
+                <input type="password" id = "passwordforcheck" name = "passwordforcheck" placeholder="パスワード（確認用）" required/>
             </div>
-            <button class = "submitbutton" type = "submit">登録する（確認画面へ）</button>
+            <button class = "submitbutton" type = "submit">確認画面へ</button>
         </form>
     </div>
 

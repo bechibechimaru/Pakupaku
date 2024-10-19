@@ -7,11 +7,11 @@ body{
 }
 
 h1{
-    color: #b5a583;
+    color: #2c7f27;
 }
 
 h2{
-    color: #b5a583;
+    color: #2c7f27;
 }
 
 .container{
@@ -46,10 +46,9 @@ input{
     outline: none;
 }
 
-.campus-dropdown{
+#campus-dropdown{
     border-radius: 20px;
-    border:none;
-    border-bottom: 1px solid;
+    border: none;
     outline: none;
 }
 
@@ -62,6 +61,7 @@ select{
     width: 100%;  /* ボタンの幅をコンテナに合わせて100%にする */
     max-width: 300px;  /* 必要に応じて最大幅を設定 */
     min-height: 40px;
+    border: none;
     border-radius: 8px;
     font-size: 1rem;
     background-color: #e5fae3;

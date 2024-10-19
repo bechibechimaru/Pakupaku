@@ -12,17 +12,16 @@
         <h1>Pakupaku <br> 会員登録画面</h1>
         <form action="/signup" method = "post" onsubmit = "return CheckPassword()">
             <div class = "signupcontent">            
-                <input type="text" id = "username" name = "username" placeholder = "ニックネームを入力" required/>
+                <input type="text" id = "username" name = "username" placeholder = "ニックネーム" required/>
             </div>
             <div class = "signupcontent">    
-                <input type="email" id = "email" name = "email" placeholder="メールアドレスを入力" required/>
+                <input type="email" id = "email" name = "email" placeholder="メールアドレス" required/>
             </div>
             <div class = "signupcontent">        
-                <input type="text" id = "university-input" name = "nameofuniversity" placeholder="大学名を入力・選択" onkeyup="filterUniversities()" required/>大学
+                <input type="text" id = "university-input" name = "nameofuniversity" placeholder="大学名" onkeyup="filterUniversities()" required/>大学
                 <ul id = "suggestions" style ="display: none;"></ul>
             </div>
             <div class = "signupcontent">
-
                 <select id="campus-dropdown" name = "campusofuniversity" required>
                     <option value="">キャンパスを選択してください</option>
                 </select>        

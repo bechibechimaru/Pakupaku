@@ -7,15 +7,47 @@
     <title>Pakupaku</title>
 </head>
 <body>
-    <header>
+    <!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/post-style.css">
+    <title>Pakupaku</title>
+</head>
+<body>
+
+    <header class="header">
         <h1>Pakupaku</h1>
-        <button class="profile" onclick="location.href='/profile'">{{.Username}}</button>
+        <!-- ハンバーガーメニューの表示・非表示を切り替えるチェックボックス -->
+        <input id="drawer_input" class="drawer_hidden" type="checkbox">
+
+        <!-- ハンバーガーアイコン -->
+        <label for="drawer_input" class="drawer_open"><span></span></label>
+
+        <!-- メニューを閉じる「×」ボタン -->
+        <label for="drawer_input" class="close_menu">×</label>
+
+        <!-- ハンバーガーメニュー -->
+        <nav class="nav_content">
+            <a class="menu-btn" href="../recommendlist">おすすめリスト</a>
+            <a class="menu-btn" href="../postscreen">掲示板</a>
+            <a class="menu-btn" href="../profile">プロフィール</a>
+        </nav>
+
+        <div class="header_menu">
+            <a href="../recommendlist">おすすめリスト</a>
+            <a href="../postscreen">掲示板</a>
+            <a href="../profile">プロフィール</a>
+        </div>
     </header>
+
     <main>
         <div class = "container">
             <div class = "headerincontainer">
                 <div class="university-campus">
-                    <p>{{.UniversityName}}大学・{{.CampusName}}キャンパス</p>
+                    <p>{{.UniversityName}}大学</p>
+                    <p>{{.CampusName}}キャンパス</p>
                 </div>
                 <div class = "promotion">
                     キャンパス周辺の飲食店を共有しよう！
@@ -44,8 +76,7 @@
         </div>            
     </main>
     <footer>
-        <button class="tab-btn">掲示板</button>
-        <button class="tab-btn" onclick="location.href='/recommendlist'">おすすめリスト</button>
+        お問い合わせ：mebiusu1968@gmail.com
     </footer>
 </body>
 </html>

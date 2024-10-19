@@ -1,148 +1,265 @@
-/* ヘッダーのスタイル */
-/* メインのコンテンツ領域 */
-main {
-    padding: 20px;
+/* 全体のリセットと共通スタイル */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #d6f2ca;
 }
 
-body{
-    background-color: #A5C398;
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* ビューポート全体の高さを確保 */
 }
+
 header {
-    color: #735C29;
-    display: flex; /* フレックスボックスを有効に */
-    justify-content: space-between; /* ヘッダー要素を左右に分ける */
-    align-items: center; /* 中央に揃える */
+    color: #23550e;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 10px;
-    border-bottom: 1px solid #ccc;
+    flex-shrink: 0;
 }
 
-.profile {
-    background-color: #FFF2E3;
-    padding: 5px 10px;
-    border: 1px solid #000;
-    border-radius: 50px;
-    cursor: pointer;
-}
-
-.container{
-    margin: 0 100px 0 100px;
+/* コンテナ */
+.container {
+    margin: 0 100px;
     padding: 10px 0 10px 10px;
     border-radius: 20px;
+    flex: 1; /* 残りの高さを使用 */
+    display: flex;
+    flex-direction: column;
 }
 
-/* 大学・キャンパス表示のスタイル */
-.university-campus {
-    color: #735C29;
-    margin-bottom: 20px;
-    text-align: left;
-}
-
-.promotion{
-    color: #735C29;
+/* 大学・キャンパスのスタイル */
+.university-campus, .promotion {
+    color: #23550e;
     margin-bottom: 10px;
+}
+
+.promotion {
     text-align: right;
 }
 
-/* 投稿コンテンツ全体のレイアウト */
+/* メインコンテンツ */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* 全体のスクロールを防ぐ */
+}
+
 .content {
-    background-color: #FFF2E3;
-    display: flex; /* フレックスボックスを使用 */
-    flex-direction: column-reverse; /* 新しい投稿を下に表示 */
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column-reverse;
     border: 1px solid #576730;
     border-radius: 20px;
+    padding: 10px;
+    overflow-y: auto;
     height: 300px; /* 固定の高さを指定 */
-    padding: 10px; /* 内側の余白 */
-    overflow-y: auto; /* 縦方向のスクロールを有効にする */
     width: 100%;
 }
 
-.content::-webkit-scrollbar{
+.content::-webkit-scrollbar {
     display: none;
 }
 
-.post{
-    color: #735C29;
+.post {
+    color: black;
     border-radius: 10px;
     padding-left: 5px;
 }
 
-.created_at{
+.created_at {
     padding-left: 5px;
 }
 
-.boxforpost{
+/* 投稿フォーム */
+.boxforpost {
     border-radius: 10px;
+    display: flex;
+    align-items: center;
 }
 
-.textbox{
-    background-color: #FFF2E3;
-    padding: 10px 0 10px 10px;
+.textbox {
+    background-color: #FFFFFF;
+    padding: 10px;
     border-radius: 20px;
-    margin: 10px 0 0 10px;
+    margin: 10px;
     width: 80%;
 }
 
-.postbutton{
-    background-color: #FFF2E3;
-    margin: 10px 10px 10px 10px ;
-    width:50px;
+.postbutton {
+    background-color: #FFFFFF;
+    margin: 10px;
+    width: 50px;
     text-align: center;
     border: solid 1px #576730;
     border-radius: 10px;
     height: 50%;
 }
-/* フッターのスタイル */
+
+/* フッター */
 footer {
-    margin: 0 180px 0 180px;
+    color: #23550e;
+    margin: 0 180px;
     display: flex;
     justify-content: space-around;
     padding: 10px;
     border-top: 1px solid #ccc;
+    flex-shrink: 0;
 }
 
-/* フッターのタブボタン */
-.tab-btn {
-    color: #735C29;
-    bottom: 20px;
-    padding: 10px 20px;
-    border: 1px solid #000;
-    border-radius: 20px;
-    background-color: #FFF2EF;
+/* ハンバーガーメニュー */
+.drawer_hidden {
+    display: none;
+}
+
+.drawer_open {
+    display: none;
+    height: 60px;
+    width: 60px;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 10px;
     cursor: pointer;
-    width: 100%;
-    text-align: center;
 }
 
-@media (max-width: 450px){
-    .container{
-        margin: 0 10px 0 10px;
-        padding: 10px 0 10px 10px;
-        border-radius: 20px;
-    }
+.drawer_open span,
+.drawer_open span:before,
+.drawer_open span:after {
+    content: '';
+    display: block;
+    height: 3px;
+    width: 25px;
+    border-radius: 3px;
+    background: #333;
+    transition: 0.5s;
+    position: absolute;
+}
 
-    .content{
-        width: 90%;
-        place-content: center;
-    }
-    .boxforpost{
-        width: 90%;
+.drawer_open span:before {
+    bottom: 8px;
+}
+
+.drawer_open span:after {
+    top: 8px;
+}
+
+/* クリック時のハンバーガーアイコン変化 */
+#drawer_input:checked ~ .drawer_open span {
+    background: rgba(255, 255, 255, 0);
+}
+
+#drawer_input:checked ~ .drawer_open span::before {
+    bottom: 0;
+    transform: rotate(45deg);
+}
+
+#drawer_input:checked ~ .drawer_open span::after {
+    top: 0;
+    transform: rotate(-45deg);
+}
+
+/* 「×」ボタン */
+.close_menu {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 100;
+}
+
+#drawer_input:checked ~ .close_menu {
+    display: block;
+}
+
+/* ナビゲーションメニュー */
+.nav_content {
+    width: 250px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: -250px;
+    z-index: 99;
+    background: #FFF8DC;
+    transition: 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    padding-top: 60px;
+}
+
+#drawer_input:checked ~ .nav_content {
+    right: 0;
+}
+
+.nav_content a {
+    padding: 15px;
+    margin: 5px 10px;
+    text-align: left;
+    color: #735C29;
+    text-decoration: none;
+    background-color: #F4E5C1;
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+.nav_content a:hover {
+    background-color: #E5D4B0;
+}
+
+/* レスポンシブデザイン */
+@media screen and (max-width: 450px) {
+    .drawer_open {
         display: flex;
     }
 
-    .textbox{
+    header .header_menu {
+        display: none;
+    }
+
+    .header {
+        padding: 0 20px;
+    }
+
+    .container {
+        margin: 0 10px;
+    }
+
+    .content {
+        width: 90%;
+        height: 500px; /* 小さな画面用に高さを調整 */
+    }
+
+    .boxforpost {
+        width: 90%;
+    }
+
+    .textbox {
         width: 70%;
-        margin: 10px 0 10px 10px;
     }
 
-    .postbutton{
-        margin: 30px 0 15px 10px ;
+    .postbutton {
+        margin: 30px 0 15px 10px;
     }
 
-    footer{
-        margin: 0px;
+    footer {
+        margin: 0;
     }
-    .tab-btn{
-        width: 100%;
-        background-color: #FFF2EF;
+}
+
+@media screen and (max-width: 390px){
+    .content{
+        height: 450px;
+    }
+}
+
+@media screen and (max-width: 380px){
+    .content{
+        height: 300px;
     }
 }

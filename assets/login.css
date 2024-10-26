@@ -1,9 +1,13 @@
-body{
-    background-color: #d6f2ca;
+html, body{
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 90vh;
+    background-color: #d6f2ca;
+    box-sizing: border-box;
 }
 
 h1{
@@ -12,15 +16,14 @@ h1{
 
 .container{
     text-align: center;
-    margin: 0 10px;  /* 小さい画面でもコンテンツが中央に収まるように */
-    padding: 0 20px 50px 20px;
-    width: 100%;  /* 必要に応じて幅を調整 */
-    max-width: 400px; /* 最大幅を設定 */
+    margin: 0 10px; 
+    padding: 0 20px 40px 20px;
+    width: 100vh; 
     box-sizing: border-box;
     background-color: #ffffff;
-    border: solid;
+    border: none;
     border-radius: 20px;
-    box-shadow: 1px 1px 8px 8px #8e8e8e;
+    box-shadow: 5px 4px #8e8e8e;
 }
 
 .logincontent{
@@ -44,9 +47,9 @@ input{
 
 .login{
     display: flex;
-    flex-direction: column; /* ボタンを縦方向に配置 */
-    align-items: center; /* ボタンを中央揃え */
-    gap: 20px; /* ボタン間のスペース */
+    flex-direction: column; 
+    align-items: center; 
+    gap: 15px; 
 }
 
 .submitbutton, .returnbutton{
@@ -55,17 +58,23 @@ input{
     min-height: 40px;
     border-radius: 8px;
     font-size: 1.5rem;
+    color: black;
     background-color: #e5fae3;
     outline: none;
 }
 
 @media (max-width: 450px){
+    body,html{
+        height: 100vh;
+        overflow: hidden;
+    }
+    
     .container{
         margin: 0 10px;
-        padding: 0 20px 30px 20px;
+        padding: 5% 10% 20% 10%;
         width: 70vw;
-        height: 50vh;
-        border: solid;
+        height: 55vh;
+        border: none;
         border-radius: 20px;
         background-color: #ffffff;
         box-sizing: border-box;
@@ -75,6 +84,7 @@ input{
         outline: none;    
         max-width: 100%;
         min-height: 40px;
+        border: none;
         border-radius: 8px;
         font-size: 1.5rem;
         width: 100%;
@@ -85,19 +95,20 @@ input{
 @media (max-width: 380px){
     .container{
         margin: 0 10px;
-        padding: 0 20px 30px 20px;
+        padding: 5% 10% 20% 10%;
         width: 70vw;
-        height: 60vh;
-        border: solid;
+        height: 65vh;
+        border: none;
         border-radius: 20px;
         background-color: #ffffff;
         box-sizing: border-box;
     }
-
+    
     .submitbutton, .returnbutton {    
         outline: none;    
         max-width: 100%;
         min-height: 40px;
+        border: none;
         border-radius: 8px;
         font-size: 1.5rem;
         width: 100%;

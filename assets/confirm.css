@@ -1,4 +1,4 @@
-body{
+body {
     background-color: #d6f2ca;
     display: flex;
     justify-content: center;
@@ -6,61 +6,63 @@ body{
     height: 90vh;
 }
 
-h1, h2{
+h1, h2 {
     color: #b5a583;
 }
 
-.container{
+.container {
     text-align: center;
-    margin: 0 10px;  
+    margin: 0 10px;
     padding: 0 20px 50px 20px;
     width: 100%;
     max-width: 400px;
     box-sizing: border-box;
     background-color: #ffffff;
-    border: solid;
+    border: none;
     border-radius: 20px;
     box-shadow: 1px 1px 8px 8px #8e8e8e;
 }
 
-form{
+form {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
 }
 
-.submitbutton, .returnbutton{
-    width: 100%;  
+.submitbutton, .returnbutton {
+    width: 100%;
     max-width: 300px;
     min-height: 40px;
+    border: none;
     border-radius: 8px;
     font-size: 1.5rem;
+    color: black;
     background-color: #e5fae3;
     outline: none;
-    margin: 10px;  /* このスタイルはすべてのメディアクエリで同じ */
+    margin: 10px;
 }
 
-@media (max-width: 450px){
-    .container{
+@media (max-width: 450px) {
+    .container {
         width: 70vw;
-        height: 63vh;
+        height: 70vh;
         padding: 0 20px 30px 20px;
     }
 
-    form{
+    form {
         gap: 1px;
     }
 }
 
-@media (max-width: 390px){
-    .container{
-        height: 75vh;
+@media (max-width: 390px) {
+    .container {
+        height: 70vh;
     }
 }
 
-@media (max-width: 375px){
-    .container{
-        height: 88vh;
+@media (max-width: 375px) {
+    .container {
+        height: 90vh;
     }
 }

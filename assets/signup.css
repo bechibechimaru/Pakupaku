@@ -7,30 +7,29 @@ body{
 }
 
 h1{
-    color: #2c7f27;
+    color: #b5a583;
 }
 
 h2{
-    color: #2c7f27;
+    color: #b5a583;
 }
 
 .container{
     text-align: center;
-    margin: 0 10px;  /* 小さい画面でもコンテンツが中央に収まるように */
-    padding: 0 20px 50px 20px;
-    width: 100%;  /* 必要に応じて幅を調整 */
-    max-width: 400px; /* 最大幅を設定 */
+    margin: 0 10px; 
+    padding: 0 20px 40px 20px;
+    width: 100vh; 
     box-sizing: border-box;
     background-color: #ffffff;
-    border: solid;
+    border: none;
     border-radius: 20px;
-    box-shadow: 1px 1px 8px 8px #8e8e8e;
+    box-shadow: 5px 4px #8e8e8e;
 }
 
 
 .signupcontent{
     margin: 15px;
-    text-align: conter;
+    text-align: center;
 }
 
 ul {
@@ -43,6 +42,7 @@ ul {
 input{
     border: none;
     border-bottom: 1px solid;
+    border-radius: 0px;
     outline: none;
 }
 
@@ -64,6 +64,7 @@ select{
     border: none;
     border-radius: 8px;
     font-size: 1rem;
+    color: black;
     background-color: #e5fae3;
     outline: none;
 }
@@ -71,10 +72,10 @@ select{
 @media (max-width: 450px){
     .container{
         margin: 0 10px;
-        padding: 0 20px 30px 20px;
+        padding: 5% 5% 5% 5%;
         width: 70vw;
-        height: 50vh;
-        border: solid;
+        height: 65vh;
+        border: none;
         border-radius: 20px;
         background-color: #ffffff;
         box-sizing: border-box;
@@ -94,10 +95,10 @@ select{
 @media (max-width: 380px){
     .container{
         margin: 0 10px;
-        padding: 0 20px 30px 20px;
-        width: 80vw;
+        padding: 5% 10% 20% 10%;
+        width: 70vw;
         height: 65vh;
-        border: solid;
+        border: none;
         border-radius: 20px;
         background-color: #ffffff;
         box-sizing: border-box;

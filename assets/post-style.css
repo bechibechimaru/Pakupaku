@@ -21,6 +21,15 @@ header {
     flex-shrink: 0;
 }
 
+@media screen and (min-width: 640px) {
+    .headerincontainer{
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+
+
 /* コンテナ */
 .container {
     margin: 0 100px;

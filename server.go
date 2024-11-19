@@ -151,10 +151,9 @@ func initDB() {
 	// envファイルを読みこむ　
 	err := godotenv.Load("./gitignore/.env")
 	if err != nil {
-		log.Fatal("Error loading .env file")
+		log.Fatalf("Error loading .env file: %v", err)
 	}
 	
-
 	dbUser := os.Getenv("DB_USER")
 	dbPassword := os.Getenv("DB_PASSWORD")
 	dbHost := os.Getenv("DB_HOST")

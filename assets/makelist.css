@@ -1,39 +1,20 @@
 body{
-    background-color: #A5C398;
+    margin: 0px;
+    background-color: #d6f2ca;
 }
 
 header {
-    color: #735C29;
+    color: #23550e;
     display: flex; /* フレックスボックスを有効に */
     justify-content: space-between; /* ヘッダー要素を左右に分ける */
     align-items: center; /* 中央に揃える */
     padding: 10px;
-    border-bottom: 1px solid #ccc;
+    box-shadow: 0px 1px 5px;
 }
 
 h2{
-    color: #735C29;
-}
-
-.profile {
-    background-color: #FFF2E3;
-    padding: 5px 10px;
-    border: 1px solid #000;
-    border-radius: 50px;
-    cursor: pointer;
-}
-
-/* 大学・キャンパス表示のスタイル */
-.university-campus {
-    color: #735C29;
-    margin-bottom: 20px;
-    text-align: left;
-}
-
-.promotion{
-    color: #735C29;
-    margin-bottom: 10px;
-    text-align: right;
+    margin: 8px;
+    color: #23550e;
 }
 
 .regires{
@@ -42,19 +23,20 @@ h2{
     border: 1px solid #576730;
     border-radius: 20px;
     margin: 10px;
+    color: #000000;
 }
 
 .route{
-    color: #735C29;
+    color: #23550e;
 }
 
 div{
-    
     margin: 5px;
 }
 
 input{
-    background-color: #FFF2E3;
+    background-color: #FFFFFF;
+    border: none;
     border-radius: 20px;
     padding-left: 5px;
 }
@@ -64,18 +46,17 @@ label{
 }
 
 select{
-    background-color: #FFF2E3;
+    background-color: #FFFFFF;
     text-align: center;
     border-radius: 20px;
 }
-
 
 .evaluation-options label {
     display: inline-block;
     margin-right: 10px;
     padding: 10px 20px;
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
+    background-color: #FFFFFF;
+    border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
@@ -94,13 +75,13 @@ select{
 
 /* 選択された時にボタンの色を変更 */
 .evaluation-options input[type="radio"]:checked + label {
-    background-color: #007BFF;
+    background-color: #06a73e;
     color: white;
-    border-color: #007BFF;
+    border-color: #06a73e;
 }
 
 textarea{
-    background-color: #FFF2E3;
+    background-color: #FFFFFF;
     margin: 5px;
     padding: 10px;
     border-radius: 20px;
@@ -112,7 +93,7 @@ textarea{
 }
 
 .regibutton{
-    background-color: #FFF2E3;
+    background-color: #FFFFFF;
     margin: 10px 10px 10px 10px ;
     width:50px;
     text-align: center;
@@ -147,7 +128,125 @@ footer {
     text-align: center;
 }
 
+/* ハンバーガーメニュー */
+.drawer_hidden {
+    display: none;
+}
+
+.drawer_open {
+    display: none;
+    height: 60px;
+    width: 60px;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+}
+
+.drawer_open span,
+.drawer_open span:before,
+.drawer_open span:after {
+    content: '';
+    display: block;
+    height: 3px;
+    width: 25px;
+    border-radius: 3px;
+    background: #333;
+    transition: 0.5s;
+    position: absolute;
+}
+
+.drawer_open span:before {
+    bottom: 8px;
+}
+
+.drawer_open span:after {
+    top: 8px;
+}
+
+/* クリック時のハンバーガーアイコン変化 */
+#drawer_input:checked ~ .drawer_open span {
+    background: rgba(255, 255, 255, 0);
+}
+
+#drawer_input:checked ~ .drawer_open span::before {
+    bottom: 0;
+    transform: rotate(45deg);
+}
+
+#drawer_input:checked ~ .drawer_open span::after {
+    top: 0;
+    transform: rotate(-45deg);
+}
+
+/* 「×」ボタン */
+.close_menu {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 100;
+}
+
+#drawer_input:checked ~ .close_menu {
+    display: block;
+}
+
+/* ナビゲーションメニュー */
+.nav_content {
+    width: 250px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: -250px;
+    z-index: 99;
+    background: #FFF8DC;
+    transition: 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    padding-top: 60px;
+}
+
+#drawer_input:checked ~ .nav_content {
+    right: 0;
+}
+
+.nav_content a {
+    padding: 15px;
+    margin: 5px 10px;
+    text-align: left;
+    color: #735C29;
+    text-decoration: none;
+    background-color: #F4E5C1;
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+.nav_content a:hover {
+    background-color: #E5D4B0;
+}
+
 @media (max-width: 450px){
+
+    .drawer_open {
+        display: flex;
+    }
+
+    header .header_menu {
+        display: none;
+    }
+
+    .header {
+        padding: 0 20px;
+    }
+
+    .nav_content{
+        box-shadow: -5px 0 10px rgba(0, 0, 0, 0.3);
+    }
+
     .container{
         margin: 0 10px 0 10px;
         padding: 10px 0 10px 10px;

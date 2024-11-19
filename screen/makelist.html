@@ -8,12 +8,32 @@
     <title>Pakupaku</title>
 </head>
 <body>
-    <header>
+    <header class="header">
         <h1>Pakupaku</h1>
-        <button class="profile" onclick="location.href='/profile'">{{.Username}}</button>
+        <!-- ハンバーガーメニューの表示・非表示を切り替えるチェックボックス -->
+        <input id="drawer_input" class="drawer_hidden" type="checkbox">
+
+        <!-- ハンバーガーアイコン -->
+        <label for="drawer_input" class="drawer_open"><span></span></label>
+
+        <!-- メニューを閉じる「×」ボタン -->
+        <label for="drawer_input" class="close_menu">×</label>
+
+        <!-- ハンバーガーメニュー -->
+        <nav class="nav_content">
+            <a class="menu-btn" href="../recommendlist">おすすめリスト</a>
+            <a class="menu-btn" href="../postscreen">掲示板</a>
+            <a class="menu-btn" href="../profile">プロフィール</a>
+        </nav>
+
+        <div class="header_menu">
+            <a href="../recommendlist">おすすめリスト</a>
+            <a href="../postscreen">掲示板</a>
+            <a href="../profile">プロフィール</a>
+        </div>
     </header>
 
-    <h2>おすすめしたい・行きたいお店を登録しよう！</h2>
+    <h2>おすすめしたい<br />行きたいお店を登録しよう！</h2>
 
     <form class="regires" action="/saverestaurant" method="POST">
         <div class="nameofrestaurant">
@@ -114,7 +134,7 @@
         <textarea name="detail" required></textarea><br>
 
         <div class="regibuttonbox">
-            <button class="regibutton" type="submit">登録</button>
+            <button class="regibutton" type="submit">上記の内容でおすすめする</button>
         </div>
     </form>
 
@@ -122,11 +142,5 @@
         評価基準
         1: bad 2: normal 3: good
     </div>
-    
-    <footer>
-        <button class="tab-btn" onclick="location.href='/postscreen'">掲示板</button>
-        <button class="tab-btn" onclick="location.href='/recommendlist'">おすすめリスト</button>
-    </footer>
-    
 </body>
 </html>

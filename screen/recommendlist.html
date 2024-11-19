@@ -43,6 +43,10 @@
                 </div>
             </div>
 
+            <div class = "makelistbtn">
+                <button class="tomakelist" onclick="location.href='/makelist'">おすすめする</button>
+            </div>
+
             <div class="recommendlist">
                 {{range .Restaurants}}
                 <div class="restaurant">
@@ -65,9 +69,7 @@
                 <p>おすすめの飲食点を記録しよう！</p>
                 {{end}}
             </div>
-            <div class = "makelistbtn">
-                <button class="tomakelist" onclick="location.href='/makelist'">おすすめのお店を作成</button>
-            </div>
+            
             
         </div>
     </main>

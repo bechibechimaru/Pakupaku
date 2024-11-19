@@ -13,48 +13,28 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 10px;
+    box-shadow: 0px 1px 5px;
     flex-shrink: 0;
-}
-
-.profile {
-    background-color: #FFF2E3;
-    padding: 5px 10px;
-    border: 1px solid #000;
-    border-radius: 50px;
-    cursor: pointer;
 }
 
 .container{
     margin: 0 100px 0 100px;
-    padding: 10px 0 10px 10px;
     border-radius: 20px;
 }
 
 /* 大学・キャンパス表示のスタイル */
 .university-campus {
-    color: #735C29;
-    margin-bottom: 20px;
-    text-align: left;
+    color: #23550e;
+    margin-bottom: 10px;
 }
 
 .promotion{
-    color: #735C29;
-    margin-bottom: 10px;
+    color: #23550e;
     text-align: right;
 }
 
 /* 投稿コンテンツ全体のレイアウト */
-.recommendlist{
-    background-color: #FFF2E3;
-    display: flex; /* フレックスボックスを使用 */
-    flex-direction: column-reverse; /* 新しい投稿を下に表示 */
-    border: 1px solid #576730;
-    border-radius: 20px;
-    height: 500px; /* 固定の高さを指定 */
-    padding: 10px; /* 内側の余白 */
-    overflow-y: auto; /* 縦方向のスクロールを有効にする */
-    width: 100%;
-}
+
 
 .recommendlist::-webkit-scrollbar{
     display: none;
@@ -75,7 +55,7 @@ header {
 }
 
 .tomakelist{
-    background-color: #FFF2E3;
+    background-color: #FFFFFF;
     margin: 10px;
     padding: 5px 10px;
 
@@ -233,7 +213,6 @@ footer {
 
     .container{
         margin: 0 10px 0 10px;
-        padding: 10px 0 10px 10px;
         border-radius: 20px;
     }
 

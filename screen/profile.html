@@ -8,29 +8,48 @@
     <title>Pakupaku</title>
 </head>
 <body>
-    <header>
+    <header class="header">
+        <h1>Pakupaku</h1>
+        <!-- ハンバーガーメニューの表示・非表示を切り替えるチェックボックス -->
+        <input id="drawer_input" class="drawer_hidden" type="checkbox">
 
-        <h1>プロフィール情報</h1>
-        <button class = "topostscreen" onclick="location.href='/postscreen'">掲示板画面へ</button>
-    
+        <!-- ハンバーガーアイコン -->
+        <label for="drawer_input" class="drawer_open"><span></span></label>
+
+        <!-- メニューを閉じる「×」ボタン -->
+        <label for="drawer_input" class="close_menu">×</label>
+
+        <!-- ハンバーガーメニュー -->
+        <nav class="nav_content">
+            <a class="menu-btn" href="../recommendlist">おすすめリスト</a>
+            <a class="menu-btn" href="../postscreen">掲示板</a>
+            <a class="menu-btn" href="../profile">プロフィール</a>
+        </nav>
+
+        <div class="header_menu">
+            <a href="../recommendlist">おすすめリスト</a>
+            <a href="../postscreen">掲示板</a>
+            <a href="../profile">プロフィール</a>
+        </div>
     </header>
     
-    <div class = "profilecontainer">
+    <main class = "profilecontainer">
         <div>
-            ニックネーム：<br>
+            <b>ニックネーム</b><br>
             {{.Username}}
         </div>
         
         <div>
-            大学：<br>
+            <b>大学</b><br>
+            
             {{.UniversityName}}大学
         </div>
 
         <div>
-            キャンパス：<br>
+            <b>キャンパス</b><br>
             {{.CampusName}}キャンパス
         </div>
-    </div>
+    </main>
 
     <div class = "logoutbtn">
         <button class = "logout" onclick="location.href='/login'">ログアウト</button>

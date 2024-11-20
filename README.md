@@ -115,6 +115,18 @@ https://pakupaku.paiza-user-basic.cloud:8080/signup
 
 ## ER Diagram
 
-Below is the ER diagram for the Pakupaku application:
+以下は本名アプリのER図です:
 
 ![ER Diagram](docs/Pakupaku_ER_Diagram_Format.png)
+
+
+## アプリイメージ
+
+![ログイン画面](docs/IMG_1229.jpg)
+![会員登録画面](docs/IMG_1230.jpg)
+![会員情報確認画面](docs/IMG_1243.jpg)
+![掲示板画面](docs/IMG_1234.jpg)
+![飲食店共有画面](docs/IMG_1236.jpg)
+![飲食店登録画面](docs/IMG_1238.jpg)
+![プロフィール画面](docs/IMG_1239.jpg)
+![メニュー遷移画面](docs/IMG_1235.jpg)

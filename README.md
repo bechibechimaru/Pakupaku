@@ -119,14 +119,36 @@ https://pakupaku.paiza-user-basic.cloud:8080/signup
 
 ![ER Diagram](docs/Pakupaku_ER_Diagram_Format.png)
 
-
 ## アプリイメージ
 
+### ログイン画面
+
 ![ログイン画面](docs/IMG_1229.jpg)
+
+### 会員登録画面
+
 ![会員登録画面](docs/IMG_1230.jpg)
+
+### 会員情報確認画面
+
 ![会員情報確認画面](docs/IMG_1243.jpg)
+
+### 掲示板画面
+
 ![掲示板画面](docs/IMG_1234.jpg)
+
+### 飲食店共有画面
+
 ![飲食店共有画面](docs/IMG_1236.jpg)
+
+### 飲食店登録画面
+
 ![飲食店登録画面](docs/IMG_1238.jpg)
+
+### ぷフロフィール画面
+
 ![プロフィール画面](docs/IMG_1239.jpg)
+
+### メニュー　遷移画面
+
 ![メニュー遷移画面](docs/IMG_1235.jpg)

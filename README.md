@@ -107,7 +107,7 @@ https://pakupaku.paiza-user-basic.cloud:8080/signup
    - Goでサーバーを起動：
 
      ```bash
-     go run main.go
+     go run server.go
      ```
 
    - ブラウザで`localhost:ポート番号`にアクセス

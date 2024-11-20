@@ -111,3 +111,10 @@ https://pakupaku.paiza-user-basic.cloud:8080/signup
      ```
 
    - ブラウザで`localhost:ポート番号`にアクセス
+
+
+## ER Diagram
+
+Below is the ER diagram for the Pakupaku application:
+
+![ER Diagram](docs/Pakupaku_ER_Diagram_Format.png)
